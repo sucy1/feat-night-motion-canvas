@@ -7,6 +7,7 @@
 export * from './BBox';
 export * from './Canvas';
 export * from './Color';
+export * from './Easing';
 export * from './Matrix';
 export * from './Matrix2D';
 export * from './Origin';

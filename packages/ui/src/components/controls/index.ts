@@ -2,6 +2,7 @@ export * from './Button';
 export * from './ButtonSelect';
 export * from './Checkbox';
 export * from './ColorInput';
+export * from './EasingEditor';
 export * from './Group';
 export * from './IconButton';
 export * from './IconCheckbox';

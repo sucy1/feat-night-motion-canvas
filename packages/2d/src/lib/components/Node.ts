@@ -2,7 +2,9 @@ import {
   BBox,
   ColorSignal,
   DependencyContext,
+  Easing,
   PossibleColor,
+  PossibleEasing,
   PossibleSpacing,
   PossibleVector2,
   Promisable,
@@ -119,6 +121,15 @@ export interface NodeProps {
    * @experimental
    */
   shaders?: PossibleShaderConfig;
+
+  /**
+   * The default easing function to use when tweening this node.
+   *
+   * @remarks
+   * This property can be visualized and edited in the Node Inspector.
+   * It defines the default timing behavior for animations on this node.
+   */
+  easing?: SignalValue<PossibleEasing>;
 }
 
 @nodeName('Node')
@@ -404,6 +415,17 @@ export class Node implements Promisable<Node> {
   @parser((value: number) => clamp(0, 1, value))
   @signal()
   public declare readonly opacity: SimpleSignal<number, this>;
+
+  /**
+   * The default easing function for animations on this node.
+   *
+   * @remarks
+   * Can be edited visually in the Node Inspector panel.
+   */
+  @initial(Easing.easeInOutCubic)
+  @wrapper(Easing)
+  @signal()
+  public declare readonly easing: Signal<PossibleEasing, Easing, this>;
 
   @computed()
   public absoluteOpacity(): number {

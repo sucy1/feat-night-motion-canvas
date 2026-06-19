@@ -1,7 +1,8 @@
-import {Color, Spacing, Vector2, isType} from '@motion-canvas/core';
+import {Color, Easing, Spacing, Vector2, isType} from '@motion-canvas/core';
 import {FunctionComponent} from 'preact';
 import {ArrayField} from './ArrayField';
 import {ColorField} from './ColorField';
+import {EasingField} from './EasingField';
 import {NumberField} from './NumberField';
 import {SpacingField} from './SpacingField';
 import {UnknownField} from './UnknownField';
@@ -15,6 +16,7 @@ const TYPE_MAP: Record<symbol, FunctionComponent<{value: any}>> = {
   [Vector2.symbol]: Vector2Field,
   [Color.symbol]: ColorField,
   [Spacing.symbol]: SpacingField,
+  [Easing.symbol]: EasingField,
 };
 
 export function AutoField({value}: AutoFieldProps) {
